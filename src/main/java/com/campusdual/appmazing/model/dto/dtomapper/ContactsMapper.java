@@ -13,7 +13,7 @@ public interface ContactsMapper {
 
     ContactsDTO toDTO(Contacts contacts);
 
-    List<ContactsDTO> toDTOList(List<ContactsDTO> contactosList);
+    List<ContactsDTO> toDTOList(List<Contacts> contactosList);
 
     Contacts toEntity(ContactsDTO contactsDTO);
 }
