@@ -3,16 +3,15 @@ package com.campusdual.appmazing.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
-@RequestMapping("/products")
-public class ProductController {
-
+@RequestMapping("/contactos")
+public class ContactosController {
     @GetMapping
     public String testController(){
-        return "Product controller works!";
+        return "Contacts controller works!";
     }
 
     @PostMapping
     public String testController(@RequestBody String name){
-        return "Product controller works, " +name + "!";
+        return "Contacts controller works, " +name + "!";
     }
 }
