@@ -45,6 +45,29 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public int secureUpdateProduct(ProductDTO productDTO){
+    ProductDTO prod = ProductMapper.INSTANCE.toDTO(productDao.getReferenceById(productDTO.getId()));
+    if(prod != null){
+        if(productDTO.getName() != null){
+            prod.setName(productDTO.getName());
+        }
+        if(productDTO.getPrice() != null){
+            prod.setPrice(productDTO.getPrice());
+        }
+        if(productDTO.getStock() != null){
+            prod.setStock(productDTO.getStock());
+        }
+        if(productDTO.getDate_added() != null){
+            prod.setDate_added(productDTO.getDate_added());
+        }
+        return  updateProduct(prod);
+    } else {
+        return  0;
+    }
+
+    }
+
+    @Override
     public int deleteProduct(ProductDTO productDTO) {
         int id = productDTO.getId();
         Product product = ProductMapper.INSTANCE.toEntity(productDTO);

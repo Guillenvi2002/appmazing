@@ -9,5 +9,8 @@ public interface IContactsService {
     List<ContactsDTO> queryAllContacts();
     int insertContact(ContactsDTO contactsDTO);
     int updateContact(ContactsDTO contactsDTO);
+
+    int secureUpdateContact(ContactsDTO contactsDTO);
+
     int deleteContact(ContactsDTO contactsDTO);
 }

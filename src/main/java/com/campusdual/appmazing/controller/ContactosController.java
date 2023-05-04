@@ -52,6 +52,11 @@ public class ContactosController {
         return contactsService.updateContact(contactsDTO);
     }
 
+    @PutMapping(value = "/securedupdate")
+    public int securedUpdateContact(@RequestBody ContactsDTO contactsDTO){
+        return contactsService.secureUpdateContact(contactsDTO);
+    }
+
     @DeleteMapping(value = "/delete")
     public int deleteContact(@RequestBody ContactsDTO contactsDTO){
         return contactsService.deleteContact(contactsDTO);

@@ -41,6 +41,31 @@ public class ContactsService implements IContactsService {
     }
 
     @Override
+    public int secureUpdateContact(ContactsDTO contactsDTO){
+        ContactsDTO contact = ContactsMapper.INSTANCE.toDTO(contactsDao.getReferenceById(contactsDTO.getId()));
+        if(contact != null){
+            if(contactsDTO.getNombre() != null){
+                contact.setNombre(contactsDTO.getNombre());
+            }
+            if(contactsDTO.getApellido1() != null){
+                contact.setApellido1(contactsDTO.getApellido1());
+            }
+            if(contactsDTO.getApellido2() != null){
+                contact.setApellido2(contactsDTO.getApellido2());
+            }
+            if(contactsDTO.getCorreo() != null){
+                contact.setCorreo(contactsDTO.getCorreo());
+            }
+            if(contactsDTO.getTelefono() != null){
+                contact.setTelefono(contactsDTO.getTelefono());
+            }
+            return  updateContact(contact);
+        } else {
+            return  0;
+        }
+
+    }
+    @Override
     public int deleteContact(ContactsDTO contactsDTO) {
         int id = contactsDTO.getId();
         Contacts contacts = ContactsMapper.INSTANCE.toEntity(contactsDTO);

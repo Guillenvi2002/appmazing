@@ -57,6 +57,11 @@ public class ProductController {
         return productService.updateProduct(productDTO);
     }
 
+    @PutMapping(value = "/securedupdate")
+    public int securedUpdateProduct(@RequestBody ProductDTO productDTO){
+        return productService.secureUpdateProduct(productDTO);
+    }
+
     @DeleteMapping(value = "/delete")
     public int deleteProduct(@RequestBody ProductDTO productDTO){
         return productService.deleteProduct(productDTO);
